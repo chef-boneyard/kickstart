@@ -1,3 +1,4 @@
+name             "kickstart"
 maintainer       "Opscode"
 maintainer_email "cookbooks@opscode.com"
 license          "Apache 2.0"
