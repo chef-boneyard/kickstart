@@ -43,9 +43,9 @@ To use the recipe on a system that will be the kickstart server,
 License and Author
 ==================
 
-Author:: Joshua Timberman (<joshua@opscode.com>)
+Author:: Joshua Timberman (<joshua@chef.io>)
 
-Copyright:: 2009, Opscode, Inc.
+Copyright:: 2009, Chef Software, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

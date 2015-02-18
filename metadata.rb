@@ -1,6 +1,6 @@
 name             "kickstart"
-maintainer       "Opscode"
-maintainer_email "cookbooks@opscode.com"
+maintainer       "Chef"
+maintainer_email "cookbooks@chef.io"
 license          "Apache 2.0"
 description      "Creates apache2 vhost and serves a kickstart file."
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
