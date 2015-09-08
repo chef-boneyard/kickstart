@@ -1,0 +1,14 @@
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: centos-6.7
+  - name: centos-7.1
+
+suites:
+  - name: default
+    run_list:
+      - recipe[kickstart::default]
