@@ -16,37 +16,36 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-include_recipe "apache2"
+include_recipe 'apache2'
 
-directory "/srv/kickstart" do
-  owner "root"
-  group "root"
-  mode "0755"
+directory '/srv/kickstart' do
+  owner 'root'
+  group 'root'
+  mode '0755'
 end
 
-template "/srv/kickstart/ks.cfg" do
-  source "ks.cfg.erb"
-  mode "0644"
-  owner "root"
-  group "root"
+template '/srv/kickstart/ks.cfg' do
+  source 'ks.cfg.erb'
+  mode '0644'
+  owner 'root'
+  group 'root'
 end
 
-link "/srv/kickstart/index.html" do
-  to "/srv/kickstart/ks.cfg"
+link '/srv/kickstart/index.html' do
+  to '/srv/kickstart/ks.cfg'
 end
 
 template "#{node[:apache][:dir]}/sites-available/kickstart.conf" do
-  source "kickstart.conf.erb"
+  source 'kickstart.conf.erb'
   variables(
-    :virtual_host_name => node[:kickstart][:virtual_host_name],
-    :docroot => "/srv/kickstart"
+    virtual_host_name: node[:kickstart][:virtual_host_name],
+    docroot: '/srv/kickstart'
   )
-  mode "0644"
-  owner "root"
-  group "root"
+  mode '0644'
+  owner 'root'
+  group 'root'
 end
 
-apache_site "kickstart.conf" do
+apache_site 'kickstart.conf' do
   enable true
 end
-
