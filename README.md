@@ -1,24 +1,25 @@
 kickstart Cookbook
 ==================
+
 [![Build Status](https://travis-ci.org/chef-cookbooks/kickstart.svg?branch=master)](http://travis-ci.org/chef-cookbooks/kickstart)
 [![Cookbook Version](https://img.shields.io/cookbook/v/kickstart.svg)](https://supermarket.chef.io/cookbooks/kickstart)
 
 Creates an apache vhost and serves a very basic kickstart file.
 
 Requirements
-============
+------------
+#### Platforms
+- RHEL/CentOS/Scientific/Amazon/Oracle
 
-## Platform:
+#### Chef
+- Chef 11+
 
-Red Hat Enterprise Linux, CentOS, or other platforms that support Kickstart :-).
+#### Cookbooks
+- apache2
 
-## Cookbooks:
-
-* apache2
 
 Attributes
-==========
-
+----------
 * `kickstart[:rootpw]` - set the root password. Use an encrypted string[1].
 * `kickstart[:virtual_host_name]` - set the ServerName for apache2 vhost.
 * `kickstart[:mirror_url]` - set the full URL to the "CentOS" directory w/ the rpms to install.
@@ -26,8 +27,7 @@ Attributes
 [Ruby way to encrypt](http://www.opensourcery.co.za/2009/05/01/quick-nix-shadow-passwords-with-ruby/)
 
 Usage
-=====
-
+-----
 You'll almost certainly want to edit ks.cfg.erb to suit your environment. As is, the provided template is used as a minimal fast install for creating virtual machines to run CentOS 5. Of particular note, the following should definitely be changed:
 
 * url - mirrors.kernel.org is usually fast for me, but maybe not for you.
@@ -42,14 +42,14 @@ To use the recipe on a system that will be the kickstart server,
 
     include_recipe "kickstart::server"
 
-License and Author
-==================
 
-Author:: Joshua Timberman (<joshua@chef.io>)
+License & Authors
+-----------------
 
-```text
-Copyright 2009-2015, Chef Software, Inc.
+**Author:** Cookbook Engineering Team (<cookbooks@chef.io>)
 
+**Copyright:** 2009-2015, Chef Software, Inc.
+```
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
