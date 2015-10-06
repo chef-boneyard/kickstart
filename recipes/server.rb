@@ -2,7 +2,7 @@
 # Cookbook Name:: kickstart
 # Recipe:: server
 #
-# Copyright 2009, Chef Software, Inc.
+# Copyright 2009-2015, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -35,10 +35,10 @@ link '/srv/kickstart/index.html' do
   to '/srv/kickstart/ks.cfg'
 end
 
-template "#{node[:apache][:dir]}/sites-available/kickstart.conf" do
+template "#{node['apache']['dir']}/sites-available/kickstart.conf" do
   source 'kickstart.conf.erb'
   variables(
-    virtual_host_name: node[:kickstart][:virtual_host_name],
+    virtual_host_name: node['kickstart']['virtual_host_name'],
     docroot: '/srv/kickstart'
   )
   mode '0644'
