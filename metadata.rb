@@ -11,8 +11,8 @@ depends 'apache2'
   supports os
 end
 
-supports 'centos'
 recipe 'kickstart', 'Empty, use one of the other recipes'
 recipe 'kickstart::server', 'Sets up kickstart as an apache vhost'
+
 source_url 'https://github.com/chef-cookbooks/kickstart' if respond_to?(:source_url)
 issues_url 'https://github.com/chef-cookbooks/kickstart/issues' if respond_to?(:issues_url)
