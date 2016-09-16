@@ -1,38 +1,38 @@
-kickstart Cookbook
-==================
+# kickstart Cookbook
 
-[![Build Status](https://travis-ci.org/chef-cookbooks/kickstart.svg?branch=master)](http://travis-ci.org/chef-cookbooks/kickstart)
-[![Cookbook Version](https://img.shields.io/cookbook/v/kickstart.svg)](https://supermarket.chef.io/cookbooks/kickstart)
+[![Build Status](https://travis-ci.org/chef-cookbooks/kickstart.svg?branch=master)](http://travis-ci.org/chef-cookbooks/kickstart) [![Cookbook Version](https://img.shields.io/cookbook/v/kickstart.svg)](https://supermarket.chef.io/cookbooks/kickstart)
 
 Creates an apache vhost and serves a very basic kickstart file.
 
-Requirements
-------------
-#### Platforms
+## Requirements
+
+### Platforms
+
 - RHEL/CentOS/Scientific/Amazon/Oracle
 
-#### Chef
+### Chef
+
 - Chef 12.1+
 
-#### Cookbooks
+### Cookbooks
+
 - apache2
 
+## Attributes
 
-Attributes
-----------
-* `kickstart['rootpw']` - set the root password. Use an encrypted string[1].
-* `kickstart['virtual_host_name']` - set the ServerName for apache2 vhost.
-* `kickstart['mirror_url']` - set the full URL to the "CentOS" directory w/ the rpms to install.
+- `kickstart['rootpw']` - set the root password. Use an encrypted string[1].
+- `kickstart['virtual_host_name']` - set the ServerName for apache2 vhost.
+- `kickstart['mirror_url']` - set the full URL to the "CentOS" directory w/ the rpms to install.
 
 [Ruby way to encrypt](http://www.opensourcery.co.za/2009/05/01/quick-nix-shadow-passwords-with-ruby/)
 
-Usage
------
-You'll almost certainly want to edit ks.cfg.erb to suit your environment. As is, the provided template is used as a minimal fast install for creating virtual machines to run CentOS 5. Of particular note, the following should definitely be changed:
+## Usage
 
-* url - mirrors.kernel.org is usually fast for me, but maybe not for you.
-* network - change the hostname.
-* rootpw - this is an attribute, so you can change it by modifying the server. Use the encrypted password!
+You'll almost certainly want to edit ks.cfg.erb to suit your environment. As is, the provided template is used as a minimal fast install for creating virtual machines to run CentOS 5\. Of particular note, the following should definitely be changed:
+
+- url - mirrors.kernel.org is usually fast for me, but maybe not for you.
+- network - change the hostname.
+- rootpw - this is an attribute, so you can change it by modifying the server. Use the encrypted password!
 
 Storage / disks should probably be customized, as well as firewall rules, SELinux policy, and the package list.
 
@@ -40,15 +40,16 @@ The %post section will install Chef via Matthew Kent's RPMs, per the Chef Wiki i
 
 To use the recipe on a system that will be the kickstart server,
 
-    include_recipe "kickstart::server"
+```
+include_recipe "kickstart::server"
+```
 
+## License & Authors
 
-License & Authors
------------------
-
-**Author:** Cookbook Engineering Team (<cookbooks@chef.io>)
+**Author:** Cookbook Engineering Team ([cookbooks@chef.io](mailto:cookbooks@chef.io))
 
 **Copyright:** 2009-2016, Chef Software, Inc.
+
 ```
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
