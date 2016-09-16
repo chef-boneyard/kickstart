@@ -2,6 +2,10 @@ kickstart Cookbook CHANGELOG
 ============================
 This file is used to list changes made in each version of the kickstart cookbook.
 
+## 1.0.0 (2016-09-16)
+- Testing updates
+- Require Chef 12.1
+
 ## v0.5.0:
 * Added name attribute to metadata for Chef 12
 * Converted docs to markdown for parsing on Supermarket
