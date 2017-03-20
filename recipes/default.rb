@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: kickstart
-# Recipe:: default
+# Cookbook:: kickstart
+# Recipe:: server
 #
-# Copyright 2009-2016, Chef Software, Inc.
+# Copyright:: 2009-2016, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,3 +16,36 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+include_recipe 'apache2'
+
+directory '/srv/kickstart' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+end
+
+template '/srv/kickstart/ks.cfg' do
+  source 'ks.cfg.erb'
+  mode '0644'
+  owner 'root'
+  group 'root'
+end
+
+link '/srv/kickstart/index.html' do
+  to '/srv/kickstart/ks.cfg'
+end
+
+template "#{node['apache']['dir']}/sites-available/kickstart.conf" do
+  source 'kickstart.conf.erb'
+  variables(
+    virtual_host_name: node['kickstart']['virtual_host_name'],
+    docroot: '/srv/kickstart'
+  )
+  mode '0644'
+  owner 'root'
+  group 'root'
+end
+
+apache_site 'kickstart.conf' do
+  enable true
+end

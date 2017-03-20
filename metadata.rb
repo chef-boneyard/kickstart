@@ -11,8 +11,7 @@ depends          'apache2'
   supports os
 end
 
-recipe 'kickstart', 'Empty, use one of the other recipes'
-recipe 'kickstart::server', 'Sets up kickstart as an apache vhost'
+recipe 'kickstart::default', 'Sets up kickstart as an apache vhost'
 
 source_url   'https://github.com/chef-cookbooks/kickstart'
 issues_url   'https://github.com/chef-cookbooks/kickstart/issues'
