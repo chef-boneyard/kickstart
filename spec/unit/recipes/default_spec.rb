@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'default recipe' do
   let(:chef_run) do
-    runner = ChefSpec::ServerRunner.new(platform: 'centos', version: '6.8')
+    runner = ChefSpec::ServerRunner.new(platform: 'centos', version: '6.9')
     runner.converge('kickstart::default')
   end
 
