@@ -6,6 +6,10 @@ describe 'default recipe' do
     runner.converge('kickstart::default')
   end
 
+  before do
+    stub_command('/usr/sbin/httpd -t').and_return(true)
+  end
+
   it 'converges successfully' do
     expect { chef_run }.to_not raise_error
   end
